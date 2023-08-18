@@ -1,0 +1,29 @@
+CREATE TABLE [dbo].[usuarios](
+	[nombre] [varchar](50) NOT NULL,
+	[clave] [varchar](50) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[nombre] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+CREATE TABLE [dbo].[nomina](
+	[dni] [varchar](50) NOT NULL,
+	[nombre] [varchar](50) NULL,
+	[domicilio] [varchar](50) NULL,
+	[fechanac] [date] NULL,
+	[fechaing] [date] NULL,
+	[puesto] [varchar](50) NULL,
+	[salario] [int] NULL,
+	[usuario] [varchar](50) NULL,
+	[id] [int] IDENTITY(1,1) NOT NULL,
+ CONSTRAINT [PK_nomina] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[nomina]  WITH CHECK ADD FOREIGN KEY([usuario])
+REFERENCES [dbo].[usuarios] ([nombre])
+GO
