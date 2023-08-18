@@ -1,0 +1,49 @@
+﻿@model CuentaNomina.Models.Cuenta
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AltaRegistro</title>
+</head>
+<body>
+    <div> 
+        @{
+            TempData["usuario"] = @Model.nombre;
+        }
+        <form method="post" action="/Nomina/Alta">  
+            Cuenta:
+            <input type="text" name="usuario" value=@Model.nombre readonly />
+            <br />
+            DNI:
+            <input type="text" name="dni" />
+            <br />
+            Nombre:
+            <input type="text" name="nombre" />
+            <br />
+            Domicilio:
+            <input type="text" name="domicilio" />
+            <br />
+             Fecha de nacimiento:
+            <input type="date" name="fechanac" />
+            <br />
+            Fecha de ingreso:
+            <input type="date" name="fechaing" />
+            <br />
+            Puesto:
+            <input type="text" name="puesto" />
+            <br />
+            Salario:
+            <input type="number" name="salario" />
+            <br />
+            <input type="submit" name="confirmar" />
+        </form>
+    </div>    
+    <a href="/Nomina/Leer">Leer registros almacenados</a>
+    <a href="/Home/Index">Cerrar sesión</a>
+</body>
+</html>

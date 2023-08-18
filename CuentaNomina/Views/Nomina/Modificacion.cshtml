@@ -1,0 +1,50 @@
+﻿@model CuentaNomina.Models.Empleado
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Modificacion</title>
+</head>
+<body>
+    <div>
+        @{
+            TempData["usuario"] = @Model.usuario;
+        }
+        <form method="post" action="/Nomina/Modificacion">
+            Cuenta:
+            <input type="text" name="usuario" value = "@Model.usuario" readonly />
+            <br />
+            DNI:
+            <input type="text" name="dni" value = "@Model.dni" readonly />
+            <br />
+            Nombre:
+            <input type="text" name="nombre" value = "@Model.nombre" />
+            <br />
+            Domicilio:
+            <input type="text" name="domicilio" value ="@Model.domicilio"/>
+            <br />
+             Fecha de nacimiento:
+            <input type="text" name="fechanac" value="@Model.fechanac" />
+            <br />
+            Fecha de ingreso:
+            <input type="text" name="fechaing" value="@Model.fechaing" />
+            <br />
+            Puesto:
+            <input type="text" name="puesto" value="@Model.puesto" />
+            <br />
+            Salario:
+            <input type="number" name="salario" value="@Model.salario" />
+            <br />
+            <input type="submit" name="confirmar" />
+        </form>
+    </div>
+    <a href="/Nomina/Leer?usuario=@Model.usuario">Leer registros almacenados</a>   
+    <a href="/Nomina/Alta?usuario=@Model.usuario">Ingresar nuevo registro</a>
+    <a href="/Home/Index">Cerrar Sesión</a>
+</body>
+</html>

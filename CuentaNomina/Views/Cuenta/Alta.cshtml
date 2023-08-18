@@ -1,0 +1,33 @@
+﻿@model CuentaNomina.Models.Cuenta
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Alta</title>
+</head>
+<body>
+    <div>
+        <h4>Cree un usuario</h4>
+        @if (@Model != null)
+        {
+            <br />
+            @Model.nombre
+        } 
+        <form method="post" action="/Cuenta/Alta">            
+            Nombre:
+            <input type="text" name="name" />
+            <br />
+            Contraseña:
+            <input type="password" name="pass" />
+            <br />            
+            <input type="submit" name="confirmar" />
+        </form>
+    </div>
+    <a href="/Home/Index/">Página principal</a>
+</body>
+</html>

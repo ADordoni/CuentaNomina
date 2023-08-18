@@ -1,0 +1,91 @@
+﻿@model IEnumerable<CuentaNomina.Models.Empleado>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Leer</title>
+    </head>
+    <body>
+         @{
+            TempData["usuario"] = @ViewBag.usuario;
+        }
+        <table class="table">
+            <tr>
+                <th>
+                    DNI
+                </th>
+                 <th>
+                    Nombre y apellido
+                </th>
+                 <th>
+                    Domicilio
+                </th>
+                 <th>
+                    Fecha de nacimiento
+                </th>
+                 <th>
+                    Fecha de ingreso
+                </th>
+                 <th>
+                    Puesto
+                </th>
+                 <th>
+                    Salario
+                </th>
+            </tr>
+            @foreach(var Persona in Model)
+            {
+              <tr>
+                @if(@Persona.nombre != null)
+                {
+                   <td>                    
+                    @Persona.dni                     
+                   </td>
+                   <td>
+                    @Persona.nombre
+                   </td>
+                   <td>
+                    @Persona.domicilio
+                   </td>
+                   <td>
+                    @Persona.fechanac 
+                   </td>
+                   <td>
+                    @Persona.fechaing 
+                   </td>
+                   <td>
+                    @Persona.puesto
+                   </td>
+                   <td>
+                    @Persona.salario
+                   </td>
+                   <td>
+                    <a href="/Nomina/Modificacion?dni=@Persona.dni">Modificar</a>                    
+                   </td>
+                   <td>
+                    <a href="/Nomina/Baja?dni=@Persona.dni">Borrar</a>                    
+                   </td>
+                }               
+                  
+              </tr>
+            }            
+        </table>      
+    @foreach(var Persona in Model)
+    {
+        @if(@Persona.usuario != null)
+        {
+            <td>
+               <a href="/Nomina/Alta">Ingresar un nuevo registro</a>
+            </td>
+            break;
+        }
+    }
+    <br />
+    <a href="/Home/Index">Cerrar Sesión</a>
+    </body>
+</html>

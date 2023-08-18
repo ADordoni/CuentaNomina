@@ -1,0 +1,25 @@
+﻿@model CuentaNomina.Models.Cuenta
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Bienvenido</title>
+    </head>
+    <body>
+        <h4>Bienvenido a su cuenta <strong>@Model.nombre</strong></h4>
+        @{
+            TempData["usuario"] = @Model.nombre;
+        }
+        <br />
+        <a href="/Nomina/Leer">Leer registros almacenados</a>
+        <br />
+        <a href="/Nomina/Alta">Agregar nuevo registro</a>
+        <br />
+        <a href="/Home/Index">Cerrar Sesión</a>
+    </body>
+</html>
